@@ -1,0 +1,32 @@
+Easy vqmod package for all opencart versions, enjoy :]
+
+
+-----------------------------------------------------
+~             Install on opencart v4                ~
+-----------------------------------------------------
+- Do not install via Extension installer, this will have no effect
+- Upload content of "upload" folder to your website using FTP software
+- Enter this url in your browser: http://[yourwebsite]/vqmod/install
+- Done
+
+Note: for opencart 4.x this vqmod script is modified to support xml files into extension folder for easier implementation
+
+
+
+-----------------------------------------------------
+~          Install on opencart v2 or v3             ~
+-----------------------------------------------------
+- Go to Extension installer and select the package
+- Done
+
+If you have error on file_get_contents uppon installing, enter this url
+in your browser: http://[yourwebsite]/vqmod/install to terminate installation
+
+
+
+-----------------------------------------------------
+~           Install on opencart v1.5                ~
+-----------------------------------------------------
+- Upload content of "upload" folder to your website using FTP software
+- Enter this url in your browser: http://[yourwebsite]/vqmod/install
+- Done

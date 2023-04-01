@@ -1,0 +1,52 @@
+config.phpa.htaccess
+/config.php
+admin/config.php
+
+!index.html
+
+/not.txt
+download/
+image/data/
+image/cache/
+system/cache/
+system/logs/
+
+system/storage/
+
+storage/cache/
+storage/logs/
+storage/session/
+
+
+# vQmod log files
+vqmod/logs/*
+# vQmod cache files
+vqmod/vqcache/*
+vqmod/checked.cache
+vqmod/mods.cache
+a.htaccess
+/config.php
+admin/config.php
+
+!index.html
+
+/not.txt
+download/
+image/data/
+image/cache/
+system/cache/
+system/logs/
+
+system/storage/
+
+storage/cache/
+storage/logs/
+storage/session/
+
+
+# vQmod log files
+vqmod/logs/*
+# vQmod cache files
+vqmod/vqcache/*
+vqmod/checked.cache
+vqmod/mods.cache

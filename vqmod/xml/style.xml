@@ -1,0 +1,15 @@
+<modification>
+    <id>Style</id>
+    <version>1</version>
+    <vqmver required="true">2.6.7</vqmver>
+	<author>Hasan YILDIZ</author>
+
+	<file name="catalog/view/template/common/header.twig" error="skip">
+		<operation>
+			<search position="after"><![CDATA[<link href="{{ stylesheet }}" type="text/css" rel="stylesheet"/>]]></search>
+			<add><![CDATA[
+             <link href="catalog/view/stylesheet/my_style.css" type="text/css" rel="stylesheet"/>
+			]]></add>
+		</operation>
+	</file>
+</modification>

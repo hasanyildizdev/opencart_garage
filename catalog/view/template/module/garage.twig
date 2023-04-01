@@ -1,0 +1,168 @@
+{{header}}
+{{column_left}}
+{{column_right}}
+
+<div id="garage-info" class="conatiner">
+        <div id="add_vehicle" class="container mt-5">
+            <div class="m-5 row border border-light d-flex justify-content-between rounded rounded-5">
+                <div class="col py-3 ps-4">
+                    <h3>Araç Ekle</h3>
+                    <h3>Aracınızı garaja ekleyerek en uygun parçaları bulun.</h4>
+                </div>
+                <div class="col-2 pt-3">
+                    <a href="/parca/index.php?route=module/my_garage">
+                        <button type="button" class="btn btn-outline-info btn-lg btn-block">Garaja Dön</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-5 col border border-light p-5 rounded rounded-5">
+                <div class="row pb-3">
+                    <div class="col-1 rounded-circle  bg-primary d-flex justify-content-center"  style="height:70px; width:70px;">
+                            <img class="img-fluid py-3 px-2" src="/parca/image/catalog/my_images/sase.png" alt="Şasi">
+                    </div>
+                    <div class="col-sm pt-2">
+                        <h3 class="text-primary">ŞASİ NUMARASI İLE EKLE</h3>
+                        <h4>Aracınızın Şasi Nosunu bu alana yazarak araç üretici marka, model ve motor bilgilerine hızlıca ulaşabilirsiniz.</h4>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-4 ps-5">
+                        <input type="text" class="form-control" placeholder="ŞASİ NO">
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-primary" style="width:120px">Ara</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="col-sm border-bottom border-light">
+                </div>
+                <h4 class="col-1 d-flex justify-content-center">
+                    VEYA
+                </h4>
+                <div class="col-sm border-bottom border-light">
+                </div>
+            </div> 
+            <div class="col border border-light p-5 rounded rounded-5 mt-3">
+                <div class="row pb-3">
+                    <div class="col-1 rounded-circle  bg-primary d-flex justify-content-center"  style="height:70px; width:70px;">
+                            <img class="img-fluid py-3 px-2" src="/parca/image/catalog/my_images/select-icon.png" alt="Şasi">
+                    </div>
+                    <div class="col-sm pt-2">
+                        <h3 class="text-primary">SEÇEREK İLERLEYİN</h3>
+                        <h4>Araç marka,model ve diğer özellikleri seçerek aracınızı oluşturabilirsiniz.</h4>
+                    </div>
+                </div>
+                <form id="form-garage" action="{{ save }}" method="post" data-oc-toggle="ajax">
+                  <fieldset>
+                        <div class="form-group">
+                            <select id="vehicle_brand_id" name="vehicle_brand_id" onchange="showModel()">
+                                <option value="" selected disabled hidden>MARKA SEÇİN</option>
+                                {% for key, car in Brands %}
+                                    <option value="{{ key + 1}}">{{car}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="vehicle_model_id" name="vehicle_model_id" style="display:none;" onchange="showEngine()">
+                                <option value="" selected disabled hidden>MODEL SEÇİN</option>
+                                {% for key, model in Models %}
+                                    <option value="{{ key + 1}}"> {{model}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="vehicle_engine_id" name="vehicle_engine_id" style="display:none;" onchange="showBody()">
+                                <option value="" selected disabled hidden>MOTOR SEÇİN</option>
+                                {% for key, motor in Engines %}
+                                    <option value="{{ key + 1}}"> {{motor}} </option>                                                    
+                                {% endfor %}
+                            </select>                        
+                        </div>
+                        <div class="form-group">
+                            <select id="vehicle_body_id" name="vehicle_body_id" style="display:none;" onchange="showYear()">
+                                <option value="" selected disabled hidden>GÖVDE SEÇİN</option>
+                                {% for key, body in Bodies %}
+                                    <option value="{{ key + 1}}"> {{body}} </option>
+                                {% endfor %}                        
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="vehicle_year_id" name="vehicle_year_id" style="display:none;" onchange="showButton()">
+                                <option value="" selected disabled hidden>YIL SEÇİN</option>
+                                {% for key, year in Years %}
+                                    <option value="{{ key + 1}}"> {{year}} </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <div class="d-inline-block pt-2 pd-2 w-100">
+                        <div class="float-start"><a href="{{ back }}" class="btn btn-light">{{ button_back }}</a></div>
+                        <div id="garageButton" class="float-end" style="display:none">
+                            <button type="submit" class="btn btn-success"> GARAJA EKLE </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {{footer_futures}}
+        </div>
+</div>
+
+<script>
+    function showModel() {
+        var brandSelect = document.getElementById("vehicle_brand_id");
+        var modelSelect = document.getElementById("vehicle_model_id");
+
+        if (brandSelect.value != "") {
+            modelSelect.style.display = "block";
+        } else {
+            modelSelect.style.display = "none";
+        }
+    }
+
+    function showEngine() {
+        var modelSelect = document.getElementById("vehicle_model_id");
+        var engineSelect = document.getElementById("vehicle_engine_id");
+
+        if (modelSelect.value != "") {
+            engineSelect.style.display = "block";
+        } else {
+            engineSelect.style.display = "none";
+        }
+    }
+
+    function showBody() {
+        var engineSelect = document.getElementById("vehicle_engine_id");
+        var bodySelect = document.getElementById("vehicle_body_id");
+
+        if (engineSelect.value != "") {
+            bodySelect.style.display = "block";
+        } else {
+            bodySelect.style.display = "none";
+        }
+    }
+
+    function showYear() {
+        var bodySelect = document.getElementById("vehicle_body_id");
+        var yearSelect = document.getElementById("vehicle_year_id");
+
+        if (bodySelect.value != "") {
+            yearSelect.style.display = "block";
+        } else {
+            yearSelect.style.display = "none";
+        }
+    }
+    function showButton() {
+        var yearSelect = document.getElementById("vehicle_year_id");
+        var garageButton = document.getElementById("garageButton");
+        if(yearSelect.value != "") {
+            garageButton.style.display = "block";
+        } else {
+            garageButton.style.display = "none";
+        }
+    }
+</script>
+{{footer}}

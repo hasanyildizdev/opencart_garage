@@ -1,0 +1,130 @@
+{{header}}
+{{column_left}}
+{{column_right}}
+{{column_top}}
+{{column_bottom}}
+<div id="my_garage-info" class="container">
+
+        <div class="container"  {% if showSignInButton %} style="display:block;"
+                                {% else %}  style="display:none;" 
+                                {% endif %}>
+            <h1 class=" my_garage_title"> Garajım </h1>
+            <h4 class=""> Sahip olduğunuz araçları kaydederek tek bir sayfadan aracınızın parçalar sayfası,bakım robotu ve hatırlatmaları deneyin. </h4>
+            <div class="d-flex justify-content-center pt-2">
+                <a class="px-5 btn btn-primary" href="index.php?route=account/login">Giriş Yap</a>  
+            </div>
+            <div class="pt-3">
+                <p>
+                    <strong>Garajım</strong>, Şasi numaranızı kullanarak ya da manuel adımları takip ederek aracınızı Otoparcasan.com sistemi üzerinden bulmak ve seçmekle başlar. Arajınızı kaydederek ileride yeniden kaydetmiş olduğunuz aracı bir tıkla ile ulaşabilir <strong>Yedek parçalar yada Bakım Robotu</strong> sayfarılana direkt ulaşabilirsiniz.
+                </p>
+                <p>
+                    Garajınıza eklediğiniz araçlara <strong>Muayene , yağ bakımı</strong> gibi hatırlatmalar ekleyebilir ve unutmamanız için mail alabilirsiniz.
+                </p>
+                <p>
+                    Filtre ve motor yağı değişimini ister profesyonel yardım alalım isterse kendimiz yapalım, aracımıza ait doğru filtrelerin ve uygun motor yağlarının seçimini ayrı ayrı yaparak zaman kaybetmekten ziyade tek seferde gerçekleştirmek araç sahiplerine ciddi kolaylıklar sağlar.            
+                </p>
+                <p>
+                    Parcaonline aracınızın özelliklerine göre <strong>periyodik bakım seti</strong> oluşturmanızı sağlayarak sizi bu zahmetli süreçten kurtarır. Aracın kalbi, beyni hatta her şeyi olan motorun uzun süre ve sorunsuz çalışabilmesi için onun için en doğru ve en kaliteli olacak filtrelerin ve motor yağının doğru seçilmesi gerekmektedir.            
+                </p>
+                <p>
+                    Araç sahipleri bu işlemleri genelde profesyonel ellere yani ustalara bıraksalar da bazı durumlarda bu güven suistimal edilebilir. En doğru olanı hem güvenmek ama tedbiri de elden bırakmamak olacaktır. O tedbir de araç sahibinin aracını tanıması, motoru için en doğru filtrelerin ve motor yağlarının bilinçli bir şekilde bilinmesi olacaktır.
+                    İşte <strong>Parcaonline.com Bakım Robotu</strong> hizmetiyle araç sahiplerine bir çeşit danışmanlık yapacak bu hizmeti sizlere sunuyoruz.
+                </p>
+            </div>
+    </div>
+
+    <div class="container mt-5" id="empty_garage" {% if showSignInButton or dontShowNoVehicle %} style="display:none;"
+                                {% else %}  style="display:block;" 
+                                {% endif %}>
+        <div class="d-flex justify-content-center">
+            <img src="https://cdn.otoparcasan.com/garage/garage-car.png" alt="Garajda Araç Bulunamadı" title="Garajda Araç Bulunamadı">
+        </div>
+        <div class="col">
+                <h2 class="text-primary d-flex justify-content-center">Garajınızda Araç Bulunamadı..</h2>
+                <h4 class="d-flex justify-content-center pt-2">Hemen sizde aracınız ekleyin, aracınıza göre parçaları listeleyin.</h4>
+                <div class="d-flex justify-content-center pt-3" >
+                    <a class="AddGarageCar btn btn-primary" href="{{garage}}">Araç Ekle</a>  
+                </div>
+        </div>
+    </div>
+
+    <div id="my_garage-info" class="container" {% if showSignInButton %} style="display:none;"
+                                {% else %}  style="display:block;" 
+                                {% endif %}>
+        <div class="m-5 row border border-light d-flex justify-content-between rounded rounded-5">
+            <div class="col py-3 ps-4">
+                <h3>Garajım</h3>
+                <h4>Garajınızda <strong> {{ garage_count }} </strong> adet araç bulunmaktadır.</h4>
+
+            </div>
+            <div class="col-2 pt-3">
+                <a href="/parca/index.php?route=module/garage">
+                    <button type="button" class="btn btn-outline-info btn-lg btn-block">Araç Ekle</button>
+                </a>
+            </div>
+        </div>
+
+        {% for key, garage in garages %}
+                <div class="m-5 row border border-light rounded rounded-5">
+                    <div class="mt-2 col-3">
+                        <h2 style="color:#2285A0"> {{ brands[key] }} </h2>
+                        <img class="img-fluid" src="https://otoparcasan.iyiapp.com/image/catalog/car.png" alt="Car" width="280" height="280">
+{#                         <div class="m-1 mb-2 row border border-info rounded rounded-2" style="width:220px; height:40px">
+                            <h4 class="col bg-primary pt-3 ms-1 text-white font-weight-bold" style="width:20px; height:40px">TR</h4>
+                            <input class="col" type="text" id="fname" name="fname" style="width:200px; height:40px" placeholder="Araç Plakanızı Girin"/>
+                        </div> #}
+                    </div>
+                    <div class="col-8 ms-4">
+                        <div class="row mt-4">
+                            <div class="col-sm row">
+                                <div class="col-3 rounded rounded-4 bg-light p-1" style="width:50px; height:50px">
+                                    <img  src="/parca/image/catalog/my_images/engine.png" alt="Motor" width="38" height="33">
+                                </div> 
+                                <div class="col-9">
+                                    <h4>Motor</h4>
+                                    <h5> {{ engines[key] }} </h5>
+                                </div>
+                            </div>
+                            <div class="col-sm row">
+                                <div class="col-3 rounded rounded-4 bg-light p-1" style="width:50px; height:50px">
+                                    <img  src="/parca/image/catalog/my_images/body.png" alt="body" width="42" height="42">
+                                </div> 
+                                <div class="col-9">
+                                    <h4>Gövde</h4>
+                                    <h5> {{ bodies[key] }} </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-sm row">
+                                <div class="col-3 rounded rounded-4 bg-light p-1" style="width:50px; height:50px">
+                                    <img style="margin:4px" src="/parca/image/catalog/my_images/model.png" alt="model" width="34" height="27">
+                                </div> 
+                                <div class="col-9">
+                                    <h4>Model</h4>
+                                    <h5> {{ models[key] }} </h5>
+                                </div>
+                            </div>
+                            <div class="col-sm row">
+                                <div class="col-3 rounded rounded-4 bg-light p-1" style="width:50px; height:50px">
+                                    <img style="margin:4px" src="/parca/image/catalog/my_images/year.png" alt="year" width="34" height="27">
+                                </div> 
+                                <div class="col-9">
+                                    <h4>Yıl</h4>
+                                    <h5> {{ yearsStart[key] }} - {{ yearsEnd[key] }} </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-2 d-flex justify-content-between">
+                        <button class="btn btn-success px-5 ms-4"> BAKIM YAP </button>
+                        <button class="btn btn-danger"> KALDIR </button>
+                    </div>
+                </div>
+            {% endfor %} 
+    </div>
+
+</div>
+
+{{footer_futures}}
+{{footer}}

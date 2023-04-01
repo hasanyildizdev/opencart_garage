@@ -1,0 +1,81 @@
+<modification>
+    <version>OpenCart Version 4</version>
+	<vqmver>4.0.0</vqmver>
+	<author>Hasan YILDIZ</author>
+	<code>garage_button</code>
+
+	<file name="catalog/controller/common/header.php" error="skip">
+		<operation>
+			<search position="add"><![CDATA[$data['menu'] = $this->load->controller('common/menu');]]></search>
+			<add><![CDATA[
+				if ($this->customer->isLogged()) {
+					$data['my_garage'] = $this->url->link('module/my_garage', 'language=' . $this->config->get('config_language') . '&customer_token=' . $this->session->data['customer_token']);
+				} else {
+					$data['my_garage'] = $this->url->link('module/my_garage');
+				}]]>
+			</add>
+		</operation>
+	</file>
+
+	<file name="catalog/view/template/common/header.twig" error="skip">
+    	<operation>
+			<search position="replace"><![CDATA[
+            <title>{{ title }}</title>
+            ]]></search>
+			<add><![CDATA[
+            <title>Parcaon</title>
+		]]></add>
+		</operation>
+
+    	<operation>
+			<search position="replace"><![CDATA[
+            <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-fluid"/>
+            ]]></search>
+			<add><![CDATA[
+            <img src="/parca/image/catalog/my_images/logo.png" title="parcaonline" alt="logo" class="img-fluid"/>
+		]]></add>
+		</operation>
+
+		<operation>
+			<search position="replace"><![CDATA[<div class="col-md-5">{{ search }}</div>]]></search>
+			<add><![CDATA[
+        		<div class="col-md-4">{{ search }}</div>
+				<div class="col-md-1">
+					<a class="btn btn-primary" href="{{ my_garage }}">Garage</a>
+				</div>
+			]]></add>
+		</operation>
+
+        <operation>
+			<search position="after"><![CDATA[<li class="list-inline-item">{{ language }}</li>]]></search>
+			<add><![CDATA[
+                  <li class="list-inline-item"> <a href="/"> Hakkımızda </a> </li>            
+                  <li class="list-inline-item"> <a href="https://otoparcasan.iyiapp.com/index.php?route=information/contact"> İletişim </a> </li>
+                  <li class="list-inline-item"> <a href="/"> Siparişlerim </a> </li>
+                  <li class="list-inline-item"> <a href="/"> Kargom Nerede? </a> </li>
+			]]></add>
+		</operation>
+
+        <operation>
+			<search position="after"><![CDATA[<link href="{{ icons }}" type="text/css" rel="stylesheet"/>]]></search>
+			<add><![CDATA[
+                  <link rel="icon" type="image/x-icon" href="/parca/image/catalog/my_images/ibre.png">
+			]]></add>
+		</operation>
+	</file>
+
+    <file name="catalog/view/template/common/menu.twig" error="skip">
+		<operation>
+			<search position="before"><![CDATA[</nav>]]></search>
+			<add><![CDATA[
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FFFFFF" class="bi bi-headset" viewBox="0 0 16 16">
+                    <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                    </svg>
+                    <div class="ps-2 mt-2">
+                        <h3 class="text-white">0850 305 <span>20 55</span></h3>
+                        <h4 class="text-light">Destek &amp; Çözüm Hattı</h4>
+                    <div>
+            ]]></add>
+		</operation>
+	</file>
+</modification>

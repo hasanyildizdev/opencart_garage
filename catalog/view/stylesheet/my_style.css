@@ -1,0 +1,201 @@
+
+.AddGarageCar {
+    padding: 15px 20px;
+    border: 2px solid rgb(33 141 205);
+    color: #fff;
+    background-color: #218dcd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: .5s;
+    font-weight: 700;
+    animation: shadow-pulse 2s infinite;
+    cursor: pointer;
+    z-index: 3;
+    display: inline-block
+  }
+  @-webkit-keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(23, 137, 204, .4)
+    }
+    to {
+        box-shadow: 0 0 0 20px rgba(23, 137, 204, 0)
+    }
+  }
+  
+  .garage-new-add {
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .car-add-title {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px
+  }
+  
+  .garage-detail .garage-car-list .car-list-title .title-left>.T {
+    color: #484848;
+    font-size: 20px;
+    margin-top: 0;
+    font-family: Bold;
+    margin-bottom: 5px
+  }
+  
+  .garage-detail .garage-car-list .car-list-title .title-left>.sT {
+    font-size: 14px;
+    font-family: regular
+  }
+  
+  .garage-detail .garage-car-list .car-list-title .title-left>.sT>span {
+    font-weight: 700
+  }
+  
+  .BackGarage {
+    border: 1px solid #db6523;
+    border-radius: 3px;
+    padding: 13px 35px;
+    color: #db6523;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 14px
+  }
+  
+  .BackGarage:hover {
+    background-color: #db6523;
+    color: #fff
+  }
+  
+  
+  .features-item {
+    flex: 1;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: .3s;
+    min-height: 62px
+  }
+  
+  .features-item>img {
+    flex: none;
+    width: 42px;
+    margin-right: 10px
+  }
+  
+  .features-item>p {
+    font-family: semibold;
+    font-size: 13px;
+    text-align: left
+  }
+  
+  .features-item>.features-tooltip {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #ededed;
+    left: 0;
+    padding: 11px;
+    text-align: left;
+    transition: .3s;
+    bottom: calc(100% + 18px);
+    border-radius: 10px
+  }
+  
+  .features-item>.features-tooltip:after {
+    top: 100%;
+    left: 45px;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-top-color: #f3f3f3;
+    border-width: 8px;
+    margin-left: -8px
+  }
+  
+  .features-item>.features-tooltip>p {
+    font-size: 12px;
+    color: #253d4e
+  }
+  
+  .features-item:hover {
+    background-color: #ededed
+  }
+  
+  .features-item:hover>.features-tooltip {
+    opacity: 1;
+    visibility: visible
+  }
+  
+  .mt-10 {
+    margin-top: 130px !important;
+  }
+  
+  .option-buttons{
+    border:2px solid #f0f0f0;
+  }
+  .option-buttons:hover{
+    border:2px solid #000000;
+  }
+
+
+
+/* Style for select elements */
+select {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Style for form groups */
+.form-group {
+  margin-bottom: 30px;
+}
+
+/* Style for labels */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+  background-color: #0275d8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style for selected options in the select elements */
+option:checked {
+  background-color: #e9ecef;
+}
+
+.my_garage_title {
+  color: #0275d8;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+strong {
+  color:#000000;
+}
